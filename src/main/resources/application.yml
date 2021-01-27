@@ -1,0 +1,39 @@
+server:
+  port: 8080
+  servlet:
+#    context-path: /backend
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+#    session:
+#      timeout: -1
+#      cookie:
+#        max-age: -1
+
+#mailServiceUrl: http://localhost:8110/email/sendMail
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/hizli?useUnicode=true&characterEncoding=UTF-8&verifyServerCertificate=false&useSSL=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: 1234
+  jpa:
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+  jmx:
+    enabled: false
+
+logging:
+  level:
+    org.springframework.web: debug
